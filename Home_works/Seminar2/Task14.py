@@ -9,3 +9,16 @@
 # Примеры/Тесты:
 # 10     -> 1,2,4,8,
 # 10000  -> 1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,
+import math
+
+n = int(input("Введите N: "))
+count = 0
+exponent = 0
+out_srt = ''
+while exponent < n:
+    exponent = 2 ** count
+    count += 1
+    if exponent < n:
+        # print(exponent)
+        out_srt += str(exponent) + ','
+print(out_srt)
