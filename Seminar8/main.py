@@ -112,7 +112,11 @@ def export_phone_dict_to_csv(phone_dict: dict, file_name: str):
     df = pd.DataFrame(phone_dict)
     df.to_csv(full_name, index=False, header=True)
 
-
+def import_from_csv(file_name):
+    MAIN_DIR = abspath(dirname(__file__))
+    full_name = join(MAIN_DIR, file_name + '.csv')
+    df = pd.read_csv(full_name, index_col=False)
+    print(df)
 def search_user(phone_dict: dict, searchstr: str) -> int:
     for key, val in phone_dict.items():
         if val[0].startswith(searchstr):
@@ -141,6 +145,7 @@ def update_user(phone_dict: dict, up_user: str):
 # print(search_user(phone_dict,'д'))
 #menu()
 # export_phone_dict(phone_dict, "phones")
-export_phone_dict_to_csv(phone_dict, "phones11")
+#export_phone_dict_to_csv(phone_dict, "phones11")
+import_from_csv("phones11")
 # print(update_user(phone_dict, 'Пе'))
 # print(phone_dict)
